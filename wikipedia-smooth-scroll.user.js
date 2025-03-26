@@ -1,0 +1,50 @@
+// ==UserScript==
+// @name         Wikipedia Smooth Scroll
+// @description  Adds smooth scrolling for in-page links on Wikipedia and sister sites
+// @version      0.2
+// @author       Daniel Bronshtein
+// @source       https://github.com/DaniBr/wikipedia-smooth-scroll
+// @grant        none
+// @run-at       document-idle
+// @match https://*.wikipedia.org/wiki/*
+// @match https://*.wiktionary.org/wiki/*
+// @match https://*.wikibooks.org/wiki/*
+// @match https://*.wikiquote.org/wiki/*
+// @match https://*.wikivoyage.org/wiki/*
+// @match https://*.wikisource.org/wiki/*
+// @match https://*.wikinews.org/wiki/*
+// @match https://*.wikiversity.org/wiki/*
+// @match https://*.wikifunctions.org/wiki/*
+// ==/UserScript==
+(function(){
+  function scrollSmoothlyTo(element) {
+    element.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
+  
+  function getIdFromInternalLink(link) {
+    try {
+      return decodeURIComponent(link.getAttribute('href').substring(1))
+    } catch (e) {
+      return link.getAttribute('href').substring(1)
+    }
+  }
+  
+  function handleInternalLinkClick(event) {
+    const link = event.currentTarget
+    const id = getIdFromInternalLink(link)
+    const element = document.getElementById(id)
+    
+    if (!element) return
+    event.preventDefault()
+    scrollSmoothlyTo(element)
+    history.pushState({ scrollTo: id }, '', link.href)
+  }
+  
+  document.querySelectorAll("a[href^='#']").forEach(link => {
+    link.addEventListener('click', handleInternalLinkClick)
+  })
+  
+  //ToDo: add smooth scrolling on popstate (when navigating back and forward)
+})()
