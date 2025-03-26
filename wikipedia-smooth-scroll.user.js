@@ -38,9 +38,9 @@
     const element = document.getElementById(id)
     
     if (!element) return
-    event.preventDefault()
     scrollSmoothlyTo(element)
     history.pushState({ scrollTo: id }, '', link.href)
+    event.preventDefault()
   }
   
   document.querySelectorAll("a[href^='#']").forEach(link => {
