@@ -3,6 +3,7 @@
 // @description  Adds smooth scrolling for in-page links on Wikipedia and sister sites
 // @version      0.2
 // @author       Daniel Bronshtein
+// @license      MIT
 // @homepage     https://github.com/DaniBr/wikipedia-smooth-scroll
 // @grant        none
 // @run-at       document-idle
