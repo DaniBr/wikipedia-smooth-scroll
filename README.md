@@ -27,7 +27,7 @@ A userscript that adds smooth scrolling to internal links on Wikipedia and its s
    - [Greasemonkey](https://www.greasespot.net/)
 
 2. Click here to install:  
-   [![Install](https://img.shields.io/badge/Install%20directly%20from-URL-brightgreen)](https://github.com/yourusername/wikipedia-smooth-scroll/raw/main/wikipedia-smooth-scroll.user.js)
+   [![Install](https://img.shields.io/badge/Install%20directly%20from-URL-brightgreen)](https://github.com/DaniBr/wikipedia-smooth-scroll/raw/refs/heads/main/wikipedia-smooth-scroll.user.js)
 
    Or manually copy the script from the repository and add it to your userscript manager.
 
